@@ -172,3 +172,6 @@ function mousePressed(){
         restart_game()
   }
 }
+
+const element = document.getElementById("defaultCanvas0");
+element.style.userSelect = "none";
