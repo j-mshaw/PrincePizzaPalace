@@ -1,6 +1,6 @@
 //array to hold all of the cells we're creating
 let pizzas = []
-var pizza_vy = 1
+var pizza_vy = 3
 var pizza_vx = 0
 
 
@@ -123,7 +123,7 @@ function draw() {
     rect(50, canvas_height/3+150, 300,100)
     stroke(255)
     fill(255)
-    text("Restart", 200, canvas_height/3 + 150+72)
+    text("Tap to Restart", canvas_width/2, canvas_height/3 + 150+72)
   }
 
   if(state == "start"){
