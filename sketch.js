@@ -13,12 +13,12 @@ var prince;
 var score = 0
 var prince_width = 200
 var prince_height = 200
-var prince_vx = 2.5
+var prince_vx = 5
 var prince_vy = 2.5
 var misses = 0
 
-var canvas_width = 400
-var canvas_height = 600
+var canvas_width = 900
+var canvas_height = 1200
 
 var state = "start"
 var last_noted = 0
@@ -34,7 +34,7 @@ function preload() {
 
 
 function setup() {
-  createCanvas(400, 600);
+  createCanvas(canvas_width, canvas_height);
 }
 
 
@@ -45,14 +45,14 @@ function draw() {
 
     //check where location of mouse is to see how to move the kitty 
     if (mouseIsPressed) {
-      if (mouseX > 200) {
+      if (mouseX > canvas_width/2) {
         prince.src = right_cat
         prince.xpos = prince.xpos + prince.vx
-        if (prince.xpos + prince_height > 400) {
-          prince.xpos = 400 - 200
+        if (prince.xpos + prince_width > canvas_width) {
+          prince.xpos = canvas_width - prince_width
         }
       }
-      else if (mouseX <= 200) {
+      else if (mouseX <= canvas_width/2) {
         prince.src = left_cat
         prince.xpos = prince.xpos - prince.vx
         console.log(mouseX + " : " + prince.xpos)
@@ -141,13 +141,8 @@ function draw() {
     text("Help Prince catch them",  canvas_width/2, 200)
     text("Miss 3 and its game over!",  canvas_width/2, 224)
 
-    text("Move Prince by holding down on the right or left sides of the screen",  0, 250, 400)
-    
-    rect(50, canvas_height/3+150, 300,100)
-    stroke(255)
-    fill(255)
-    textSize(72)
-    text("Go", 200, canvas_height/3 + 150+72)
+    text("Move Prince by holding down on the right or left sides of the screen",  canvas_width/2, 400)
+    text("Tap To Start!",  canvas_width/2, 500)
   }
 
 }
@@ -169,15 +164,11 @@ function buildX(x) {
 }
 
 function getRandomX() {
-  return Math.floor(random(35,350));
+  return Math.floor(random(35,canvas_width-50));
 }
 
 function mousePressed(){
   if(state == "end" || state =="start"){
-    if(mouseX > 50 && mouseX < 350){
-      if(mouseY > canvas_height/3+150  && mouseY < canvas_height/3 + 250){
         restart_game()
-      }
-    }
   }
 }
