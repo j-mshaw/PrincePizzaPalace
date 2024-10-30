@@ -120,9 +120,6 @@ function draw() {
     textSize(72)
     text("Final Score",canvas_width/2,canvas_height/3)
     text(score,canvas_width/2,canvas_height/3+72)
-    rect(50, canvas_height/3+150, 300,100)
-    stroke(255)
-    fill(255)
     text("Tap to Restart", canvas_width/2, canvas_height/3 + 150+72)
   }
 
